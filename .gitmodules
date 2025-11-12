@@ -1,0 +1,3 @@
+[submodule "source/solid-math"]
+	path = source/solid-math
+	url = git@github.com:Driven-Mad/solid-math.git
