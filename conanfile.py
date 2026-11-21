@@ -9,6 +9,7 @@ class CompressorRecipe(ConanFile):
         self.requires("opengl/system")
         self.requires("glfw/3.3.8")
         self.requires("glew/2.2.0")
+        self.requires("glm/1.0.3")
 
     def build_requirements(self):
         self.tool_requires("cmake/3.27.9")

@@ -2,6 +2,7 @@
 
 #include "double3.h"
 #include "inputManager.h"
+#include "shader.h"
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>

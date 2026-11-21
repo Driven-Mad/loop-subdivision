@@ -40,4 +40,12 @@ else()
     message("Unable to find glfw")
 endif()
 
+find_package(glm REQUIRED)
+if (glm_FOUND)
+    target_link_libraries(${PROJECT_NAME} PUBLIC glm)
+else()
+    message("Unable to find glm")
+endif()
+
+
 target_link_libraries(${PROJECT_NAME} PUBLIC solid-math)

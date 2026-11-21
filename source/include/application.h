@@ -20,7 +20,6 @@ class Application {
 
   private:
     struct DestroyglfwWin {
-
         void operator()(GLFWwindow* ptr) const {
             if (ptr) {
 
