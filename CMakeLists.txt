@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.10.0)
 project(loop-subdivision VERSION 0.1.0 LANGUAGES C CXX)
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 #include(conanfile.txt)
 #conan_basic_setup()
@@ -9,13 +10,21 @@ set(SOURCE
    source/main.cpp
    source/src/application.cpp
 )
-set(HEADERS
+set(HEADER_FILES
    source/include/application.h
 )
 
 add_subdirectory("source/solid-math")
 
-add_executable(${PROJECT_NAME} ${SOURCE} ${HEADERS})
+target_include_directories(solid-math
+    PUBLIC
+        $<INSTALL_INTERFACE:include>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/source/include>
+    PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/source/src
+)
+
+add_executable(${PROJECT_NAME} ${SOURCE})
 
 find_package(GLEW REQUIRED)
 if (GLEW_FOUND)
